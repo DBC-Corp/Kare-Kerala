@@ -4,7 +4,7 @@ import { FiPhone } from "react-icons/fi";
 
 const Header = () => {
   return (
-    <div className=" flex  items-center justify-between py-2 px-10 bg-[#FCFAF8] inter text-[14px]  ">
+    <div className="fixed top-0 left-0 w-full z-100 flex items-center justify-between py-2 px-10 bg-[#FCFAF8]  inter text-[14px] ">
       {/* logo  */}
       <div>
         <img src={KareKeralaLogo} alt="KareKeralaLogo" />
