@@ -5,10 +5,12 @@ import Footer from "./Footer";
 
 const UserLayout = () => {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <Outlet />
-      <Footer />
+      <div className="flex-grow">
+        <Outlet />
+      </div>
+      <Footer className="absolute bottom-0 w-full" />
     </div>
   );
 };

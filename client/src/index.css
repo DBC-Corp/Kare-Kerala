@@ -8,6 +8,12 @@
     font-family: "Playfair Display", serif;
 }
 
+.hero-section {
+    background-image: url("./assets/images/heroImg.png");
+    background-size: cover;
+    background-position: center;
+}
+
 
 
 

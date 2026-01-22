@@ -7,11 +7,9 @@ const App = () => {
   return (
     <div>
       <Routes>
-
         <Route path="/" element={<UserLayout />}>
-       
+          <Route index element={<Home />} />
         </Route>
-
       </Routes>
     </div>
   );
