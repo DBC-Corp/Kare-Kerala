@@ -1,19 +1,15 @@
-
-
-
 import React from "react";
 import Star from "../../../assets/images/star.svg";
+import BottomShape from "../../../assets/images/BottomShape.svg";
 
 const Hero = () => {
   return (
-    <div className="hero-section relative overflow-hidden inter text-white flex flex-col items-center justify-center text-center py-[190px]">
-
+    <div className="hero-section relative overflow-hidden inter text-white flex flex-col items-center justify-center text-center py-[200px]">
       {/* Lighter gradient overlay */}
-      <div className="absolute inset-0 z-0 bg-[linear-gradient(to_top,rgba(41,86,64,0.70)_0%,rgba(41,86,64,0.55)_35%,rgba(20,30,24,0.45)_65%,rgba(10,15,12,0.65)_100%)]" />
+      <div className="absolute bottom-0 left-0 w-full h-[165%] z-0 bg-[linear-gradient(to_top,rgba(41,86,64,0.70)_0%,rgba(41,86,64,0.55)_35%,rgba(20,30,24,0.45)_65%,rgba(10,15,12,0.65)_100%)]" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center gap-5">
-
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/10 backdrop-blur-md text-sm font-medium">
           <img src={Star} alt="Star" className="w-4 h-4" />
           <p>Medical Tourism & Authentic Ayurveda</p>
@@ -26,8 +22,8 @@ const Hero = () => {
           </h1>
 
           <p className="text-gray-200 text-lg pt-5 max-w-3xl mx-auto">
-            Connecting global patients with trusted hospitals, expert doctors, and
-            authentic Ayurvedic treatment centres across Kerala.
+            Connecting global patients with trusted hospitals, expert doctors,
+            and authentic Ayurvedic treatment centres across Kerala.
           </p>
         </div>
 
@@ -40,8 +36,14 @@ const Hero = () => {
             Explore Services
           </button>
         </div>
-
       </div>
+
+      {/* Bottom Shape Image */}
+      <img
+        src={BottomShape}
+        alt=""
+        className="absolute bottom-[-1px] left-0 w-full z-20 pointer-events-none"
+      />
     </div>
   );
 };
