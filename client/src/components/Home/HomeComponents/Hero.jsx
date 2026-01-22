@@ -4,7 +4,7 @@ import BottomShape from "../../../assets/images/BottomShape.svg";
 
 const Hero = () => {
   return (
-    <div className="hero-section relative overflow-hidden inter text-white flex flex-col items-center justify-center text-center py-[200px]">
+    <div className="hero-section relative overflow-hidden inter text-white flex flex-col items-center justify-center text-center py-[170px]">
       {/* Lighter gradient overlay */}
       <div className="absolute bottom-0 left-0 w-full h-[165%] z-0 bg-[linear-gradient(to_top,rgba(41,86,64,0.70)_0%,rgba(41,86,64,0.55)_35%,rgba(20,30,24,0.45)_65%,rgba(10,15,12,0.65)_100%)]" />
 
