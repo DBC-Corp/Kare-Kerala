@@ -28,11 +28,29 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 mt-6 sm:mt-4 w-full sm:w-auto px-4 sm:px-0">
-          <button className="px-7 py-3 bg-[#1B6498] text-white rounded-[10px] hover:bg-[#134d77] transition w-full sm:w-auto font-medium">
+          {/* Primary */}
+          <button
+            className="
+      px-7 py-3 rounded-[10px] font-medium w-full sm:w-auto
+      bg-[#1B6498] text-white border border-[#1B6498]
+      transition-all duration-300 ease-out
+      hover:bg-black/30 hover:backdrop-blur hover:text-white
+      hover:border-[#1B6498] hover:shadow-lg hover:scale-[1.03] cursor-pointer
+    "
+          >
             Start Your Journey
           </button>
 
-          <button className="px-7 py-3 border border-[#1B6498] bg-black/30 backdrop-blur rounded-[10px] hover:bg-white/10 transition w-full sm:w-auto font-medium">
+          {/* Secondary */}
+          <button
+            className="
+      px-7 py-3 rounded-[10px] font-medium w-full sm:w-auto
+      border border-[#1B6498] bg-black/30 backdrop-blur text-white
+      transition-all duration-300 ease-out
+      hover:bg-[#1B6498] hover:text-white
+      hover:border-[#1B6498] hover:shadow-lg hover:scale-[1.03] cursor-pointer
+    "
+          >
             Explore Services
           </button>
         </div>
