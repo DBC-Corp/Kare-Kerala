@@ -15,7 +15,7 @@ const highlights = [
 
 const AboutHighlights = () => {
   return (
-    <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-15 pt-10 pb-16 lg:pt-15 lg:pb-25 px-5">
+    <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-15 pt-10 pb-16 lg:pt-15  px-5">
       {highlights.map((highlight, index) => (
         <div key={index} className="flex flex-col justify-center items-center text-center max-w-[140px] md:max-w-none">
           <img 
