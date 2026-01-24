@@ -41,7 +41,7 @@ const About = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 pt-1 justify-center lg:justify-start">
-              <button className="px-6 py-2.5 flex items-center justify-center gap-2 bg-[#1B6498] text-white rounded-[10px] hover:bg-[#134d77] transition font-medium shadow-sm hover:shadow-md w-full sm:w-auto">
+              <button className="px-6 cursor-pointer py-2.5 flex items-center justify-center gap-2 bg-[#1B6498] text-white rounded-[10px] hover:bg-[#134d77] transition font-medium shadow-sm hover:shadow-md w-full sm:w-auto">
                 Learn More <AiOutlineArrowRight />
               </button>
             </div>
