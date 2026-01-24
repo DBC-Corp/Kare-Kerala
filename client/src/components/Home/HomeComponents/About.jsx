@@ -6,7 +6,7 @@ import AboutTextCarousel from "./ui/AboutTextCarousel";
 
 const About = () => {
   return (
-    <section className="w-full">
+    <section className="w-full pb-10 ">
       <AboutHighlights />
 
       {/* Main About Section */}
