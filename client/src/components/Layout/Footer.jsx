@@ -14,59 +14,41 @@ import {
 const Footer = () => {
   return (
     <footer className="bg-[#214131] text-white inter">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          {/* Column 1: Logo + description + social */}
-          <div className="space-y-6 ">
-            <div className="flex items-center gap-3">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-14 sm:py-16">
+        {/* Main Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+
+          {/* Column 1 */}
+          <div className="space-y-6 text-center sm:text-left">
+            <div className="flex justify-center sm:justify-start">
               <img src={KareKeralaLogo} alt="Kare Kerala" className="w-28" />
             </div>
-            <p className="text-sm text-[#d5e6de] max-w-xs leading-relaxed">
+
+            <p className="text-sm text-[#d5e6de] max-w-xs mx-auto sm:mx-0 leading-relaxed">
               Your trusted partner for medical tourism and authentic Ayurvedic
               treatments in Kerala, India.
             </p>
 
-            <div className="flex items-center gap-3">
-              {/** Social buttons: update hrefs */}
-              <div className="flex items-center gap-3 text-[#cfe9df]">
-                <a
-                  href="#"
-                  aria-label="facebook"
-                  className="w-9 h-9 rounded-full bg-white/6 flex items-center justify-center hover:bg-white/10 transition"
-                >
-                  <FaFacebookF size={14} />
-                </a>
-
-                <a
-                  href="#"
-                  aria-label="instagram"
-                  className="w-9 h-9 rounded-full bg-white/6 flex items-center justify-center hover:bg-white/10 transition"
-                >
-                  <FaInstagram size={15} />
-                </a>
-
-                <a
-                  href="#"
-                  aria-label="twitter"
-                  className="w-9 h-9 rounded-full bg-white/6 flex items-center justify-center hover:bg-white/10 transition"
-                >
-                  <FaXTwitter size={14} />
-                </a>
-
-                <a
-                  href="#"
-                  aria-label="linkedin"
-                  className="w-9 h-9 rounded-full bg-white/6 flex items-center justify-center hover:bg-white/10 transition"
-                >
-                  <FaLinkedinIn size={14} />
-                </a>
-              </div>
+            {/* Social Icons */}
+            <div className="flex justify-center sm:justify-start gap-3 text-[#cfe9df]">
+              {[FaFacebookF, FaInstagram, FaXTwitter, FaLinkedinIn].map(
+                (Icon, i) => (
+                  <a
+                    key={i}
+                    href="#"
+                    className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center cursor-pointer
+                               transition-all duration-300 hover:bg-[#4DBD89] hover:text-[#214131] hover:scale-110"
+                  >
+                    <Icon size={14} />
+                  </a>
+                )
+              )}
             </div>
           </div>
 
-          {/* Column 2: Services */}
-          <div>
-            <h4 className="text-lg font-semibold text-[#e6f2ea] mb-6 playfair">
+          {/* Column 2 */}
+          <div className="text-center sm:text-left">
+            <h4 className="text-lg font-semibold text-[#e6f2ea] mb-5 playfair">
               Services
             </h4>
             <ul className="space-y-3 text-sm text-[#d5e6de]">
@@ -89,35 +71,34 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 3: Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold text-[#e6f2ea] mb-6 playfair">
+          {/* Column 3 */}
+          <div className="text-center sm:text-left">
+            <h4 className="text-lg font-semibold text-[#e6f2ea] mb-5 playfair">
               Quick Links
             </h4>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-3 text-sm text-[#d5e6de]">
               {["Home", "About Us", "Services", "Why Kerala", "Contact"].map(
                 (item) => (
                   <li
                     key={item}
-                    className="text-[#d5e6de] cursor-pointer transition-all duration-300 hover:text-[#4DBD89] hover:translate-x-1"
+                    className="cursor-pointer transition-all duration-300 hover:text-[#4DBD89] hover:translate-x-1"
                   >
                     {item}
                   </li>
-                ),
+                )
               )}
             </ul>
           </div>
 
-          {/* Column 4: Contact Info */}
-          <div>
-            <h4 className="text-lg font-semibold text-[#e6f2ea] mb-6 playfair">
+          {/* Column 4 */}
+          <div className="text-center sm:text-left">
+            <h4 className="text-lg font-semibold text-[#e6f2ea] mb-5 playfair">
               Contact Info
             </h4>
 
             <div className="space-y-4 text-sm text-[#d5e6de]">
-              <div className="flex items-start gap-3">
+              <div className="flex justify-center sm:justify-start items-start gap-3">
                 <FaLocationDot className="text-[#4DBD89] mt-0.5" size={16} />
-
                 <div>
                   <div className="text-[#cfe9df]">xxxxxxxx</div>
                   <div className="text-[#a9d3c0] text-xs">
@@ -126,24 +107,23 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3">
+              <div className="flex justify-center sm:justify-start items-center gap-3">
                 <FaPhone className="text-[#4DBD89]" size={15} />
-                <div className="text-[#cfe9df]">+91 xxxxxxxxxxx</div>
+                <span className="text-[#cfe9df]">+91 xxxxxxxxxxx</span>
               </div>
 
-              <div className="flex items-center gap-3">
+              <div className="flex justify-center sm:justify-start items-center gap-3">
                 <FaEnvelope className="text-[#4DBD89]" size={15} />
-                <div className="text-[#cfe9df]">xxxxxx@xxxxxxxxx.com</div>
+                <span className="text-[#cfe9df]">xxxxxx@xxxxxxxxx.com</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Divider + bottom copyright */}
-        <div className="mt-10 border-t border-[#0f2923]/30 pt-6">
+        {/* Bottom bar */}
+        <div className="mt-12 border-t border-[#0f2923]/40 pt-6">
           <p className="text-center text-xs text-[#9fb8a8]">
-            &copy; {new Date().getFullYear()} Kare Kerala | Medical Tourism &
-            Ayurveda in Kerala
+            © {new Date().getFullYear()} Kare Kerala | Medical Tourism & Ayurveda in Kerala
           </p>
         </div>
       </div>
