@@ -45,36 +45,46 @@ const AboutCarouselGSAP = () => {
 
   // --- GSAP ANIMATION LOGIC ---
   useLayoutEffect(() => {
-    // Create a GSAP Context for easy cleanup
     const ctx = gsap.context(() => {
-      // Loop through all slides
       slideRefs.current.forEach((slide, index) => {
         if (!slide) return;
 
         if (index === currentIndex) {
-          // Animate the Active Slide IN
-          gsap.to(slide, {
-            autoAlpha: 1, // opacity: 1 + visibility: visible
-            duration: 1,
-            ease: "power2.inOut",
-            // Optional: Add a slight scale effect for a premium feel
-            scale: 1,
-            zIndex: 10, // Bring to front
-          });
+          // ACTIVE IMAGE — reveal
+          gsap.fromTo(
+            slide,
+            {
+              autoAlpha: 0,
+              y: 25,
+              scale: 1.08,
+              filter: "blur(8px)",
+            },
+            {
+              autoAlpha: 1,
+              y: 0,
+              scale: 1,
+              filter: "blur(0px)",
+              duration: 1.1,
+              ease: "power3.out",
+              zIndex: 10,
+            },
+          );
         } else {
-          // Animate Inactive Slides OUT
+          // INACTIVE IMAGE — exit
           gsap.to(slide, {
-            autoAlpha: 0, // opacity: 0 + visibility: hidden
-            duration: 1,
+            autoAlpha: 0,
+            y: -20,
+            scale: 1.05,
+            filter: "blur(6px)",
+            duration: 0.8,
             ease: "power2.inOut",
-            scale: 1.1, // Slight zoom out effect when fading away
             zIndex: 1,
           });
         }
       });
-    }, containerRef); // Scope to this component
+    }, containerRef);
 
-    return () => ctx.revert(); // Cleanup GSAP on unmount/update
+    return () => ctx.revert();
   }, [currentIndex]);
 
   // --- DIMENSIONS & CONFIGURATION ---
