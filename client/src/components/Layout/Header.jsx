@@ -16,8 +16,6 @@ const Header = () => {
 
   // --- ANIMATION LOGIC ---
   useEffect(() => {
-    // We do NOT use ctx.revert() here.
-    // Allowing GSAP to overwrite the previous state automatically prevents the "snap".
     animateMenuToggle(isMenuOpen, hamburgerRef, closeRef);
   }, [isMenuOpen]);
 

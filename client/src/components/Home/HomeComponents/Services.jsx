@@ -8,6 +8,9 @@ import Frame55 from "../../../assets/images/serviceSection/Frame 5 (5).svg";
 import Frame6 from "../../../assets/images/serviceSection/Frame 6.svg";
 import Frame7 from "../../../assets/images/serviceSection/Frame 5.svg";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import PerfectSpirit from "../../../assets/images/serviceSection/Perfect-Spirit-01.svg fill.svg";
+import PerfectMind from "../../../assets/images/serviceSection/Perfect-Mind-01.svg fill.svg";
+import PerfectBody from "../../../assets/images/serviceSection/Perfect-Body-01.svg fill.svg";
 
 const Services = () => {
   // Data Array containing content + layout logic
@@ -71,8 +74,33 @@ const Services = () => {
     },
   ];
 
+  const perfectServices = [
+    {
+      id: 1,
+      image: PerfectBody,
+      title: "Perfect Body",
+      description:
+        "Physical Well-being involves on one side maintaining a good health and on another side to treat the occurred disease",
+    },
+    {
+      id: 2,
+      image: PerfectMind,
+      title: "Perfect Mind",
+      description:
+        "Emotional and psychological well- being to a person is equally important as physical health",
+    },
+    {
+      id: 3,
+      image: PerfectSpirit,
+      title: "Perfect Spirit",
+      description:
+        "Spiritual health is important to for our total well being and an integral part of holistic health philosophy",
+    },
+  ];
+
   return (
     <div>
+      {/* Services Section */}
       <div className="px-6 py-15 lg:p-20 ">
         {/* Section 1: Header */}
         <div className="text-center mb-14">
@@ -120,6 +148,26 @@ const Services = () => {
             Book an Appointment <AiOutlineArrowRight />
           </button>
         </div>
+      </div>
+
+      {/* Services Footer Section */}
+      <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center lg:justify-evenly gap-10 lg:gap-0 text-center bg-[#e9f6f1] py-10 lg:py-20 px-5 ">
+        {perfectServices.map((service) => (
+          <div
+            key={service.id}
+            className="w-full sm:w-[70%] lg:w-[20%] xl:w-[14%] flex flex-col items-center justify-start gap-4 "
+          >
+            <img src={service.image} alt={service.title} />
+            <div>
+              <h1 className="text-[20px] text-[#244C38] playfair font-bold pb-2 ">
+                {service.title}
+              </h1>
+              <p className="text-[16px] text-[#244C38] inter ">
+                {service.description}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
