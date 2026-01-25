@@ -4,12 +4,7 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import SmoothScroll from "./animations/SmoothScroll";
-
-// Force scroll to top on load/reload
-if (history.scrollRestoration) {
-  history.scrollRestoration = "manual";
-}
-window.scrollTo(0, 0);
+import "./utils/scrollReset";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
