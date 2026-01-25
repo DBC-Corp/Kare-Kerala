@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import KareKeralaLogo from "../../assets/images/kareKeralaLogo.svg";
+import KareKeralaLogo from "../../assets/images/websiteLogo/kareKeralaLogo.svg";
 import { FiPhone, FiMenu, FiX } from "react-icons/fi";
 
 const Header = () => {
