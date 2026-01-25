@@ -1,6 +1,6 @@
 // src/components/Footer.jsx
 import React from "react";
-import KareKeralaLogo from "../../assets/images/kareKeralaLogoWhite.svg";
+import KareKeralaLogo from "../../assets/images/websiteLogo/kareKeralaLogoWhite.svg";
 import {
   FaFacebookF,
   FaInstagram,

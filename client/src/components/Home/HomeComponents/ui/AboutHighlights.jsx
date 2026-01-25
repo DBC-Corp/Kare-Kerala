@@ -1,9 +1,9 @@
 import React from "react";
-import Overlay0 from "../../../../assets/images/Overlay(0).svg";
-import Overlay1 from "../../../../assets/images/Overlay (1).svg";
-import Overlay2 from "../../../../assets/images/Overlay (2).svg";
-import Overlay3 from "../../../../assets/images/Overlay (3).svg";
-import Overlay4 from "../../../../assets/images/Overlay (4).svg";
+import Overlay0 from "../../../../assets/images/aboutSection/Overlay(0).svg";
+import Overlay1 from "../../../../assets/images/aboutSection/Overlay (1).svg";
+import Overlay2 from "../../../../assets/images/aboutSection/Overlay (2).svg";
+import Overlay3 from "../../../../assets/images/aboutSection/Overlay (3).svg";
+import Overlay4 from "../../../../assets/images/aboutSection/Overlay (4).svg";
 
 const highlights = [
   { img: Overlay0, label: "Trusted Hospitals" },

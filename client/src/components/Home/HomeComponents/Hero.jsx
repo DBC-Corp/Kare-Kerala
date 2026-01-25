@@ -1,6 +1,6 @@
 import React from "react";
-import Star from "../../../assets/images/star.svg";
-import BottomShape from "../../../assets/images/BottomShape.svg";
+import Star from "../../../assets/images/heroSection/star.svg";
+import BottomShape from "../../../assets/images/heroSection/BottomShape.svg";
 
 const Hero = () => {
   return (

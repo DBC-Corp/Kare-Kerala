@@ -1,6 +1,6 @@
 import React from "react";
-import OurMissionIcon from "../../../assets/images/OurMissionIcon.svg";
-import OurVisionIcon from "../../../assets/images/OurVisionIcon.svg";
+import OurMissionIcon from "../../../assets/images/ourMission&ourVisionSection/OurMissionIcon.svg";
+import OurVisionIcon from "../../../assets/images/ourMission&ourVisionSection/OurVisionIcon.svg";
 import { FaRegCircleCheck } from "react-icons/fa6";
 
 const OurMission = () => {

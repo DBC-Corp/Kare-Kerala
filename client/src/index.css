@@ -13,7 +13,7 @@
 }
 
 .hero-section {
-    background-image: url("./assets/images/heroImg.png");
+    background-image: url("./assets/images/heroSection/heroImg.png");
     background-size: cover;
     background-position: center;
 }
