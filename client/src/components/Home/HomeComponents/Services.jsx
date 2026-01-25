@@ -110,7 +110,7 @@ const Services = () => {
           <h1 className="text-3xl sm:text-5xl playfair font-semibold text-[#244C38] mb-4">
             Our Services
           </h1>
-          <p className="inter text-[#577566] text-[16px]">
+          <p className="inter text-[#577566] text-[14px] sm:text-[16px]">
             Comprehensive healthcare and wellness services tailored to your
             needs
           </p>
@@ -162,7 +162,7 @@ const Services = () => {
               <h1 className="text-[20px] text-[#244C38] playfair font-bold pb-2 ">
                 {service.title}
               </h1>
-              <p className="text-[16px] text-[#244C38] inter ">
+              <p className="text-[14px] sm:text-[16px] text-[#244C38] inter ">
                 {service.description}
               </p>
             </div>
