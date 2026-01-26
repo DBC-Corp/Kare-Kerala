@@ -1,0 +1,16 @@
+import React from 'react'
+import WhyKeralaSection1 from './ui/WhyKeralaSection1'
+import WhyKerelaSection2 from './ui/WhyKeralaSection2'
+const WhyKerala = () => {
+  return (
+
+   
+    <div>
+        <WhyKeralaSection1 />
+        <WhyKerelaSection2 />
+          
+    </div>
+  )
+}
+
+export default WhyKerala

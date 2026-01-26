@@ -16,8 +16,6 @@ const Header = () => {
 
   // --- ANIMATION LOGIC ---
   useEffect(() => {
-    // We do NOT use ctx.revert() here.
-    // Allowing GSAP to overwrite the previous state automatically prevents the "snap".
     animateMenuToggle(isMenuOpen, hamburgerRef, closeRef);
   }, [isMenuOpen]);
 
@@ -39,8 +37,19 @@ const Header = () => {
   }, [isMenuOpen]);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#FCFAF8] inter shadow-sm">
-      <div className="flex items-center justify-between h-[72px] px-5 lg:px-10">
+    <header className="fixed top-0 left-0 w-full z-50 inter">
+      {/* Backdrop Blur Overlay */}
+      <div
+        className={`fixed inset-0 z-[-1] bg-black/30 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+          isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setIsMenuOpen(false)}
+      />
+      <div
+        className={`flex items-center justify-between h-[72px] px-5 lg:px-10 bg-[#FCFAF8] ${
+          isMenuOpen ? "" : "shadow-sm"
+        }`}
+      >
         {/* Logo */}
         <div className="w-[120px] lg:w-auto">
           <img
@@ -96,23 +105,27 @@ const Header = () => {
       {/* Mobile Menu Dropdown */}
       <div
         ref={menuRef}
-        className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out bg-[#FCFAF8] shadow-md ${
-          isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+        className={`lg:hidden grid transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] bg-[#FCFAF8] shadow-md rounded-b-[30px] ${
+          isMenuOpen
+            ? "grid-rows-[1fr] opacity-100"
+            : "grid-rows-[0fr] opacity-0"
         }`}
       >
-        <div className="flex flex-col items-center gap-8 py-10 text-[16px] font-medium">
-          {navLinks.map((link) => (
-            <p
-              key={link}
-              className="cursor-pointer transition hover:text-[#1B6498]"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {link}
-            </p>
-          ))}
-          <button className="mt-4 uppercase flex items-center gap-2 py-3 px-7 rounded-xl border-2 border-[#1B6498] text-[#1B6498] font-medium transition hover:bg-[#1B6498] hover:text-white">
-            <FiPhone /> Contact Us
-          </button>
+        <div className="overflow-hidden">
+          <div className="flex flex-col items-center gap-8 py-10 text-[16px] font-medium ">
+            {navLinks.map((link) => (
+              <p
+                key={link}
+                className="cursor-pointer transition hover:text-[#1B6498]"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link}
+              </p>
+            ))}
+            <button className="mt-4 uppercase flex items-center gap-2 py-3 px-7 rounded-xl border-2 border-[#1B6498] text-[#1B6498] font-medium transition hover:bg-[#1B6498] hover:text-white">
+              <FiPhone /> Contact Us
+            </button>
+          </div>
         </div>
       </div>
     </header>
