@@ -118,7 +118,7 @@ const Services = () => {
 
         {/* Section 2: Grid Layout */}
         <div className="flex justify-center">
-          <div className="grid grid-cols-2 lg:grid-cols-3 playfair text-[#7A7A7A] gap-10 text-[18px] justify-items-center items-start text-center max-w-[1200px]">
+          <div className="grid grid-cols-2 lg:grid-cols-3 playfair text-[#7A7A7A] gap-10 text-[14px] lg:text-[18px] justify-items-center items-start text-center max-w-[1200px]">
             {/* Mapped Service Items */}
             {serviceItems.map((item) => (
               <div
@@ -130,6 +130,7 @@ const Services = () => {
                   alt={
                     typeof item.title === "string" ? item.title : "Service Icon"
                   }
+                  className="w-12 h-12 lg:w-auto lg:h-auto"
                 />
                 <p>{item.title}</p>
               </div>
@@ -137,7 +138,11 @@ const Services = () => {
 
             {/* Center Image (Static Item) */}
             <div className="col-span-2 order-first lg:order-none lg:mx-0 lg:col-span-1 lg:col-start-2 lg:row-start-2 mt-0 lg:mt-[-150px] flex flex-col items-center justify-center">
-              <img src={ServicesImage} alt="Main Services" />
+              <img
+                src={ServicesImage}
+                alt="Main Services"
+                className="w-[80%] lg:w-auto"
+              />
             </div>
           </div>
         </div>
