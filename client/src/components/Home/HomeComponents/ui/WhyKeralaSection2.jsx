@@ -88,7 +88,16 @@ const WhyKeralaSection2 = () => {
             </div>
 
             {/* --- DESKTOP CAROUSEL (Infinite Loop) --- */}
-            <div className="hidden lg:block w-full flex-1 overflow-hidden">
+            {/* --- DESKTOP CAROUSEL (Infinite Loop) --- */}
+            <div
+              className="hidden lg:block w-full flex-1 overflow-hidden relative"
+              style={{
+                maskImage:
+                  "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+                WebkitMaskImage:
+                  "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+              }}
+            >
               <div
                 ref={sliderRef}
                 className="flex gap-6 w-max py-10 pr-6 will-change-transform"
