@@ -137,7 +137,7 @@ const Services = () => {
             ))}
 
             {/* Center Image (Static Item) */}
-            <div className="col-span-2 order-first lg:order-none lg:mx-0 lg:col-span-1 lg:col-start-2 lg:row-start-2 mt-0 lg:mt-[-150px] flex flex-col items-center justify-center">
+            <div className="col-span-2 order-first lg:order-0 lg:mx-0 lg:col-span-1 lg:col-start-2 lg:row-start-2 mt-0 lg:mt-[-150px] flex flex-col items-center justify-center">
               <img
                 src={ServicesImage}
                 alt="Main Services"
