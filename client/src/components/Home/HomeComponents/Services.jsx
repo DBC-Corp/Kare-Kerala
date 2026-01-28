@@ -1,4 +1,5 @@
 import React from "react";
+import { LuStethoscope } from "react-icons/lu";
 import ServicesImage from "../../../assets/images/serviceSection/ServicesImage.png";
 import Frame51 from "../../../assets/images/serviceSection/Frame 5 (1).svg";
 import Frame52 from "../../../assets/images/serviceSection/Frame 5 (2).svg";
@@ -103,14 +104,16 @@ const Services = () => {
       {/* Services Section */}
       <div className="px-6 py-15 lg:p-20 ">
         {/* Section 1: Header */}
-        <div className="text-center mb-14">
-          <h3 className="text-sm sm:text-base inter uppercase tracking-[0.25em] text-[#4DBD89] mb-2">
-            What We Offer
-          </h3>
-          <h1 className="text-3xl sm:text-5xl playfair font-semibold text-[#244C38] mb-4">
+        {/* Section 1: Header */}
+        <div className="flex flex-col items-center justify-center mb-16 space-y-4">
+          <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F3EF] text-[#244C38] text-xs font-semibold tracking-wide uppercase">
+            <LuStethoscope className="text-lg" />
+            <span>What We Offer</span>
+          </div>
+          <h1 className="playfair text-[#244C38] text-3xl md:text-5xl text-center font-bold leading-tight">
             Our Services
           </h1>
-          <p className="inter text-[#577566] text-[14px] sm:text-[16px]">
+          <p className="text-gray-500 text-center max-w-2xl text-sm md:text-base">
             Comprehensive healthcare and wellness services tailored to your
             needs
           </p>
