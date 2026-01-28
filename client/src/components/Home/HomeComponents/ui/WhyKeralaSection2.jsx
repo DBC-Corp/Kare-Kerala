@@ -73,7 +73,7 @@ const WhyKeralaSection2 = () => {
         {/* Background Gradient */}
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,#000000_0%,#000000_40%,#134221_100%)] opacity-50 z-0"></div>
 
-        <div className="relative z-10 text-white text-[#F7F7F7] w-full px-4 lg:pr-0 lg:pl-6">
+        <div className="relative z-10 text-white w-full px-4 lg:pr-0 lg:pl-6">
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-10">
             {/* Left Static Text */}
             <div className="w-full lg:w-[35%] shrink-0 p-2 lg:p-5 text-center lg:text-left">
@@ -117,7 +117,7 @@ const WhyKeralaSection2 = () => {
                         relative h-[450px] w-auto shrink-0 rounded-2xl cursor-pointer
                         transition-all duration-500 ease-out origin-center
                         ${isHovered ? "scale-105 z-20 shadow-2xl brightness-110" : "z-10"}
-                        ${isBlurred ? "scale-95 blur-[4px] opacity-40 grayscale-[0.5]" : "opacity-100 blur-0"}
+                        ${isBlurred ? "scale-95 blur-xs opacity-40 grayscale-[0.5]" : "opacity-100 blur-0"}
                         ${!isAnyHovered ? "scale-100" : ""}
                       `}
                     >
