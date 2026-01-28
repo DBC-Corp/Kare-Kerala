@@ -3,8 +3,8 @@ import Image1 from "../../../assets/images/ourPromiseSection/image1.png";
 import Image2 from "../../../assets/images/ourPromiseSection/image2.png";
 import Image3 from "../../../assets/images/ourPromiseSection/image3.png";
 import Image4 from "../../../assets/images/ourPromiseSection/image4.png";
-import Img5 from "../../../assets/images/ourPromiseSection/img5.png";
-import Img6 from "../../../assets/images/ourPromiseSection/Group15589.png";
+import Img5 from "../../../assets/images/ourPromiseSection/boldDedicated1.svg";
+import Img6 from "../../../assets/images/ourPromiseSection/Group15589.svg";
 
 const OurPromise = () => {
   const promises = [
