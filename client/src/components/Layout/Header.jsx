@@ -75,7 +75,8 @@ const Header = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="w-[120px] lg:w-auto"
+          className="w-[120px] lg:w-auto cursor-pointer"
+          onClick={() => handleNavClick("Home")}
         >
           <img
             src={KareKeralaLogo}
