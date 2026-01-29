@@ -1,6 +1,7 @@
 import React from "react";
 import { FaPlay, FaArrowRight } from "react-icons/fa";
 import { LuMapPin, LuWallet, LuBriefcase, LuStethoscope } from "react-icons/lu";
+import { motion } from "framer-motion";
 
 const OurDoctors = () => {
   // Using a placeholder service to generate a generic image
@@ -41,7 +42,13 @@ const OurDoctors = () => {
   return (
     <div className="w-full pt-5 pb-15 px-4 md:px-10 font-sans bg-[#fcfaf8]">
       {/* Header */}
-      <div className="flex flex-col items-center justify-center mb-16 space-y-4">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="flex flex-col items-center justify-center mb-16 space-y-4"
+      >
         <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F3EF] text-[#244C38] text-xs font-semibold tracking-wide uppercase">
           <LuStethoscope className="text-lg" />
           <span>Expert Care</span>
@@ -53,13 +60,28 @@ const OurDoctors = () => {
           Meet our team of dedicated professionals committed to providing the
           best medical care with state-of-the-art facilities.
         </p>
-      </div>
+      </motion.div>
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto justify-items-center">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={{
+          hidden: {},
+          visible: {
+            transition: { staggerChildren: 0.15 },
+          },
+        }}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto justify-items-center"
+      >
         {doctors.map((item, index) => (
-          <div
+          <motion.div
             key={index}
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+            }}
             className="group w-full max-w-[320px] sm:max-w-none bg-white rounded-t-[80px] md:rounded-t-[100px] lg:rounded-t-[120px] rounded-b-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-300"
           >
             {/* Image Section */}
@@ -117,16 +139,22 @@ const OurDoctors = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {/* View All Button */}
-      <div className="flex justify-center mt-12 px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        viewport={{ once: true }}
+        className="flex justify-center mt-12 px-4"
+      >
         <button className="px-6 cursor-pointer py-2.5 flex items-center justify-center gap-2 bg-[#1B6498] text-white rounded-[10px] hover:bg-[#134d77] transition font-medium shadow-sm hover:shadow-md w-full sm:w-auto">
           View all doctors <FaArrowRight />
         </button>
-      </div>
+      </motion.div>
     </div>
   );
 };

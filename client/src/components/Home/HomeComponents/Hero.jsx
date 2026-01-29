@@ -1,6 +1,7 @@
 import React from "react";
 import Star from "../../../assets/images/heroSection/star.svg";
 import BottomShape from "../../../assets/images/heroSection/BottomShape.svg";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
@@ -9,25 +10,50 @@ const Hero = () => {
       <div className="absolute bottom-0 left-0 w-full h-[165%] z-0 bg-[linear-gradient(to_top,rgba(41,86,64,0.70)_0%,rgba(41,86,64,0.55)_35%,rgba(20,30,24,0.45)_65%,rgba(10,15,12,0.65)_100%)]" />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center gap-5 max-w-4xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/10 backdrop-blur-md text-sm font-medium">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="relative z-10 flex flex-col items-center justify-center gap-5 max-w-4xl mx-auto"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.6 }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/10 backdrop-blur-md text-sm font-medium"
+        >
           <img src={Star} alt="Star" className="w-4 h-4" />
           <p>Medical Tourism & Authentic Ayurveda</p>
-        </div>
+        </motion.div>
 
         <div>
-          <h1 className="playfair text-[40px] md:text-[60px] lg:text-[72px] leading-[110%] lg:leading-[120%] font-bold">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="playfair text-[40px] md:text-[60px] lg:text-[72px] leading-[110%] lg:leading-[120%] font-bold"
+          >
             Global Gateway to <span className="text-[#1B6498]">Healing</span>
             <br /> in Kerala
-          </h1>
+          </motion.h1>
 
-          <p className="text-gray-200 text-base md:text-lg pt-4 md:pt-5 max-w-[90%] md:max-w-3xl mx-auto leading-relaxed">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="text-gray-200 text-base md:text-lg pt-4 md:pt-5 max-w-[90%] md:max-w-3xl mx-auto leading-relaxed"
+          >
             Connecting global patients with trusted hospitals, expert doctors,
             and authentic Ayurvedic treatment centres across Kerala.
-          </p>
+          </motion.p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 mt-6 sm:mt-4 w-full sm:w-auto px-4 sm:px-0">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.6 }}
+          className="flex flex-col sm:flex-row gap-4 mt-6 sm:mt-4 w-full sm:w-auto px-4 sm:px-0"
+        >
           {/* Primary */}
           <button
             className="
@@ -53,8 +79,8 @@ const Hero = () => {
           >
             Explore Services
           </button>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Bottom Shape Image */}
       <img

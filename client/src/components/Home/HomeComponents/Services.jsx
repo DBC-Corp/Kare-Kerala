@@ -12,6 +12,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import PerfectSpirit from "../../../assets/images/serviceSection/Perfect-Spirit-01.svg fill.svg";
 import PerfectMind from "../../../assets/images/serviceSection/Perfect-Mind-01.svg fill.svg";
 import PerfectBody from "../../../assets/images/serviceSection/Perfect-Body-01.svg fill.svg";
+import { motion } from "framer-motion";
 
 const Services = () => {
   // Data Array containing content + layout logic
@@ -104,8 +105,13 @@ const Services = () => {
       {/* Services Section */}
       <div className="px-6 py-15 lg:p-20 ">
         {/* Section 1: Header */}
-        {/* Section 1: Header */}
-        <div className="flex flex-col items-center justify-center mb-16 space-y-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="flex flex-col items-center justify-center mb-16 space-y-4"
+        >
           <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F3EF] text-[#244C38] text-xs font-semibold tracking-wide uppercase">
             <LuStethoscope className="text-lg" />
             <span>What We Offer</span>
@@ -117,15 +123,36 @@ const Services = () => {
             Comprehensive healthcare and wellness services tailored to your
             needs
           </p>
-        </div>
+        </motion.div>
 
         {/* Section 2: Grid Layout */}
-        <div className="flex justify-center">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.1,
+              },
+            },
+          }}
+          className="flex justify-center"
+        >
           <div className="grid grid-cols-2 lg:grid-cols-3 playfair text-[#7A7A7A] gap-10 text-[14px] lg:text-[18px] justify-items-center items-start text-center max-w-[1200px]">
             {/* Mapped Service Items */}
             {serviceItems.map((item) => (
-              <div
+              <motion.div
                 key={item.id}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.9 },
+                  visible: {
+                    opacity: 1,
+                    scale: 1,
+                    transition: { type: "spring", stiffness: 50 },
+                  },
+                }}
                 className={`${item.positionClass} flex flex-col items-center justify-start gap-2`}
               >
                 <img
@@ -136,33 +163,58 @@ const Services = () => {
                   className="w-12 h-12 lg:w-auto lg:h-auto"
                 />
                 <p>{item.title}</p>
-              </div>
+              </motion.div>
             ))}
 
             {/* Center Image (Static Item) */}
-            <div className="col-span-2 order-first lg:order-0 lg:mx-0 lg:col-span-1 lg:col-start-2 lg:row-start-2 mt-0 lg:mt-[-150px] flex flex-col items-center justify-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="col-span-2 order-first lg:order-0 lg:mx-0 lg:col-span-1 lg:col-start-2 lg:row-start-2 mt-0 lg:mt-[-150px] flex flex-col items-center justify-center"
+            >
               <img
                 src={ServicesImage}
                 alt="Main Services"
                 className="w-[80%] lg:w-auto"
               />
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Section 3: Button */}
-        <div className="flex flex-col sm:flex-row gap-3 justify-center pt-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="flex flex-col sm:flex-row gap-3 justify-center pt-10"
+        >
           <button className="px-6 cursor-pointer py-2.5 flex items-center justify-center gap-2 bg-[#1B6498] text-white rounded-[10px] hover:bg-[#134d77] transition font-medium shadow-sm hover:shadow-md w-full sm:w-auto">
             Book an Appointment <AiOutlineArrowRight />
           </button>
-        </div>
+        </motion.div>
       </div>
 
       {/* Services Footer Section */}
-      <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center lg:justify-evenly gap-10 lg:gap-0 text-center bg-[#e9f6f1] py-10 lg:py-20 px-5 ">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.2 } },
+        }}
+        className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center lg:justify-evenly gap-10 lg:gap-0 text-center bg-[#e9f6f1] py-10 lg:py-20 px-5 "
+      >
         {perfectServices.map((service) => (
-          <div
+          <motion.div
             key={service.id}
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
             className="w-full sm:w-[70%] lg:w-[20%] xl:w-[14%] flex flex-col items-center justify-start gap-4 "
           >
             <img src={service.image} alt={service.title} />
@@ -174,9 +226,9 @@ const Services = () => {
                 {service.description}
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

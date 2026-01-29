@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import KareKeralaLogo from "../../assets/images/websiteLogo/kareKeralaLogo.svg";
 import { FiPhone, FiMenu, FiX } from "react-icons/fi";
 import { animateMenuToggle } from "../../animations/menuAnimations";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,16 +52,26 @@ const Header = () => {
         }`}
       >
         {/* Logo */}
-        <div className="w-[120px] lg:w-auto">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="w-[120px] lg:w-auto"
+        >
           <img
             src={KareKeralaLogo}
             alt="Logo"
             className="w-full h-full object-contain"
           />
-        </div>
+        </motion.div>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex gap-8 font-medium">
+        <motion.nav
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="hidden lg:flex gap-8 font-medium"
+        >
           {navLinks.map((link) => (
             <p
               key={link}
@@ -69,17 +80,25 @@ const Header = () => {
               {link}
             </p>
           ))}
-        </nav>
+        </motion.nav>
 
         {/* Desktop CTA */}
-        <div className="hidden lg:block">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="hidden lg:block"
+        >
           <button className="uppercase flex items-center gap-2 py-2.5 px-5 rounded-xl border-2 border-[#1B6498] text-[#1B6498] font-medium transition hover:bg-[#1B6498] hover:text-white">
             <FiPhone /> Contact Us
           </button>
-        </div>
+        </motion.div>
 
         {/* --- MOBILE TOGGLE BUTTON --- */}
-        <button
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
           ref={buttonRef}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="lg:hidden text-[#1B6498] relative w-[30px] h-[30px] flex items-center justify-center outline-none"
@@ -99,7 +118,7 @@ const Header = () => {
           >
             <FiX size={30} />
           </div>
-        </button>
+        </motion.button>
       </div>
 
       {/* Mobile Menu Dropdown */}

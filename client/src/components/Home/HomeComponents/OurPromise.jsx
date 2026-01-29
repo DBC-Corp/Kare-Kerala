@@ -6,6 +6,7 @@ import Image3 from "../../../assets/images/ourPromiseSection/image3.png";
 import Image4 from "../../../assets/images/ourPromiseSection/image4.png";
 import Img5 from "../../../assets/images/ourPromiseSection/boldDedicated1.svg";
 import Img6 from "../../../assets/images/ourPromiseSection/Group15589.svg";
+import { motion } from "framer-motion";
 
 const OurPromise = () => {
   const promises = [
@@ -35,8 +36,13 @@ const OurPromise = () => {
     <section>
       <div className="bg-[#F8F9FA] min-h-[92vh] pt-20 pb-10 px-4 sm:px-8 lg:px-20">
         {/* Header */}
-        {/* Header */}
-        <div className="flex flex-col items-center justify-center mb-16 space-y-4  ">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="flex flex-col items-center justify-center mb-16 space-y-4"
+        >
           <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F3EF] text-[#244C38] text-xs font-semibold tracking-wide uppercase">
             <LuShieldCheck className="text-lg" />
             <span>Our Commitment</span>
@@ -49,7 +55,7 @@ const OurPromise = () => {
             transparent, and comfortable, connecting you with the best care
             Kerala has to offer.
           </p>
-        </div>
+        </motion.div>
 
         {/* Grid Container */}
         <div className="relative max-w-5xl mx-auto">
@@ -60,10 +66,23 @@ const OurPromise = () => {
           {/* Center Circle */}
           <div className="hidden md:block absolute top-1/2 left-1/2 w-5 h-5 bg-[#F8F9FA] border border-[#244C38] rounded-full transform -translate-x-1/2 -translate-y-1/2 z-10" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.2 } },
+            }}
+            className="grid grid-cols-1 md:grid-cols-2"
+          >
             {promises.map((item, index) => (
-              <div
+              <motion.div
                 key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+                }}
                 className={`flex flex-col sm:flex-row gap-4 sm:gap-6 items-center sm:items-start text-center sm:text-left py-8 md:py-10 ${
                   /* Add specific padding based on quadrant to create space around the center lines */
                   index % 2 === 0 ? "md:pr-10" : "md:pl-10"
@@ -87,13 +106,19 @@ const OurPromise = () => {
                     {item.desc}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
 
-      <div className=" pb-16 px-4 sm:px-8 lg:px-20">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className=" pb-16 px-4 sm:px-8 lg:px-20"
+      >
         <h1 className="text-[#244C38] playfair lg:text-[48px] text-3xl font-bold text-center pb-6 md:pb-10 ">
           Your journey with Kare Kerala
         </h1>
@@ -105,7 +130,7 @@ const OurPromise = () => {
             className="block lg:hidden w-full lg:w-auto"
           />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -10,16 +10,31 @@ import {
   FaPhone,
   FaEnvelope,
 } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#214131] text-white inter">
+    <motion.footer
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={{
+        hidden: {},
+        visible: { transition: { staggerChildren: 0.1 } },
+      }}
+      className="bg-[#214131] text-white inter"
+    >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-14 sm:py-16">
         {/* Main Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
-
           {/* Column 1 */}
-          <div className="space-y-6 text-center sm:text-left">
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
+            className="space-y-6 text-center sm:text-left"
+          >
             <div className="flex justify-center sm:justify-start">
               <img src={KareKeralaLogo} alt="Kare Kerala" className="w-28" />
             </div>
@@ -41,13 +56,19 @@ const Footer = () => {
                   >
                     <Icon size={14} />
                   </a>
-                )
+                ),
               )}
             </div>
-          </div>
+          </motion.div>
 
           {/* Column 2 */}
-          <div className="text-center sm:text-left">
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
+            className="text-center sm:text-left"
+          >
             <h4 className="text-lg font-semibold text-[#e6f2ea] mb-5 playfair">
               Services
             </h4>
@@ -69,10 +90,16 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Column 3 */}
-          <div className="text-center sm:text-left">
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
+            className="text-center sm:text-left"
+          >
             <h4 className="text-lg font-semibold text-[#e6f2ea] mb-5 playfair">
               Quick Links
             </h4>
@@ -85,13 +112,19 @@ const Footer = () => {
                   >
                     {item}
                   </li>
-                )
+                ),
               )}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Column 4 */}
-          <div className="text-center sm:text-left">
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
+            className="text-center sm:text-left"
+          >
             <h4 className="text-lg font-semibold text-[#e6f2ea] mb-5 playfair">
               Contact Info
             </h4>
@@ -117,17 +150,24 @@ const Footer = () => {
                 <span className="text-[#cfe9df]">xxxxxx@xxxxxxxxx.com</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 border-t border-[#0f2923]/40 pt-6">
+        <motion.div
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { duration: 0.8 } },
+          }}
+          className="mt-12 border-t border-[#0f2923]/40 pt-6"
+        >
           <p className="text-center text-xs text-[#9fb8a8]">
-            © {new Date().getFullYear()} Kare Kerala | Medical Tourism & Ayurveda in Kerala
+            © {new Date().getFullYear()} Kare Kerala | Medical Tourism &
+            Ayurveda in Kerala
           </p>
-        </div>
+        </motion.div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 
