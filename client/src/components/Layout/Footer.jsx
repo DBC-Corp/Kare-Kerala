@@ -13,6 +13,25 @@ import {
 import { motion } from "framer-motion";
 
 const Footer = () => {
+  const handleNavClick = (linkName) => {
+    const idMap = {
+      Home: "home",
+      "About Us": "about-us",
+      Services: "services",
+      "Why Kerala": "why-kerala",
+      Doctors: "doctors",
+      Contact: "contact",
+    };
+
+    const id = idMap[linkName];
+    if (id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <motion.footer
       initial="hidden"
@@ -104,16 +123,22 @@ const Footer = () => {
               Quick Links
             </h4>
             <ul className="space-y-3 text-sm text-[#d5e6de]">
-              {["Home", "About Us", "Services", "Why Kerala", "Contact"].map(
-                (item) => (
-                  <li
-                    key={item}
-                    className="cursor-pointer transition-all duration-300 hover:text-[#4DBD89] hover:translate-x-1"
-                  >
-                    {item}
-                  </li>
-                ),
-              )}
+              {[
+                "Home",
+                "About Us",
+                "Services",
+                "Why Kerala",
+                "Doctors",
+                "Contact",
+              ].map((item) => (
+                <li
+                  key={item}
+                  onClick={() => handleNavClick(item)}
+                  className="cursor-pointer transition-all duration-300 hover:text-[#4DBD89] hover:translate-x-1"
+                >
+                  {item}
+                </li>
+              ))}
             </ul>
           </motion.div>
 
