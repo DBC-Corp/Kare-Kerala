@@ -1,4 +1,5 @@
 import React from "react";
+import { LuMapPin } from "react-icons/lu";
 import Overlay0 from "../../../../assets/images/whyKeralaSection/Overlay (0).svg";
 import Overlay1 from "../../../../assets/images/whyKeralaSection/Overlay (1).svg";
 import Overlay2 from "../../../../assets/images/whyKeralaSection/Overlay (2).svg";
@@ -15,19 +16,18 @@ const WhyKeralaSection1 = () => {
   return (
     <div className="py-16 md:py-25 px-5 bg-[linear-gradient(150deg,#244C38_20%,#203c2e_80%)]">
       {/* section 1 */}
-      <div className="text-center mb-10 md:mb-14 text-[#FCFAF8]">
-        <h3 className="text-xs sm:text-base inter uppercase tracking-[0.25em] text-[#4DBD89] mb-2">
-          The Perfect Destination
-        </h3>
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl playfair font-semibold mb-4 leading-tight">
+      <div className="flex flex-col items-center justify-center mb-10 md:mb-16 space-y-4 text-[#FCFAF8]">
+        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-[#4DBD89] text-xs font-semibold tracking-wide uppercase">
+          <LuMapPin className="text-lg" />
+          <span>The Perfect Destination</span>
+        </div>
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl playfair font-bold text-center leading-tight">
           Why Kerala for Healthcare & Ayurveda
         </h1>
-        <p className="inter w-full sm:w-[80%] lg:w-[50%] mx-auto text-[#FCFAF8] text-[14px] sm:text-[16px] font-light leading-relaxed">
+        <p className="text-gray-300 text-center max-w-3xl text-sm md:text-base font-light leading-relaxed">
           Kerala offers a unique blend of nature, traditional medicine, and
-          modern healthcare. <br className="hidden sm:block" /> Its climate,
-          wellness culture, and medical expertise create an ideal{" "}
-          <br className="hidden sm:block" /> environment for healing and
-          recovery.
+          modern healthcare. Its climate, wellness culture, and medical
+          expertise create an ideal environment for healing and recovery.
         </p>
       </div>
       {/* section 2 */}

@@ -1,10 +1,11 @@
 import React from "react";
+import { LuShieldCheck } from "react-icons/lu";
 import Image1 from "../../../assets/images/ourPromiseSection/image1.png";
 import Image2 from "../../../assets/images/ourPromiseSection/image2.png";
 import Image3 from "../../../assets/images/ourPromiseSection/image3.png";
 import Image4 from "../../../assets/images/ourPromiseSection/image4.png";
-import Img5 from "../../../assets/images/ourPromiseSection/img5.png";
-import Img6 from "../../../assets/images/ourPromiseSection/Group15589.png";
+import Img5 from "../../../assets/images/ourPromiseSection/boldDedicated1.svg";
+import Img6 from "../../../assets/images/ourPromiseSection/Group15589.svg";
 
 const OurPromise = () => {
   const promises = [
@@ -32,12 +33,22 @@ const OurPromise = () => {
 
   return (
     <section>
-      <div className="bg-[#F8F9FA] min-h-[92vh] pt-10 pb-10 px-4 sm:px-8 lg:px-20">
+      <div className="bg-[#F8F9FA] min-h-[92vh] pt-20 pb-10 px-4 sm:px-8 lg:px-20">
         {/* Header */}
-        <div className="flex justify-center mb-10 md:mb-16">
-          <h1 className="playfair text-[#244C38] text-3xl md:text-[48px] text-center font-bold">
+        {/* Header */}
+        <div className="flex flex-col items-center justify-center mb-16 space-y-4  ">
+          <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F3EF] text-[#244C38] text-xs font-semibold tracking-wide uppercase">
+            <LuShieldCheck className="text-lg" />
+            <span>Our Commitment</span>
+          </div>
+          <h1 className="playfair text-[#244C38] text-3xl md:text-5xl text-center font-bold leading-tight">
             Our Promise
           </h1>
+          <p className="text-gray-500 text-center max-w-2xl text-sm md:text-base">
+            We are dedicated to ensuring your medical journey is safe,
+            transparent, and comfortable, connecting you with the best care
+            Kerala has to offer.
+          </p>
         </div>
 
         {/* Grid Container */}
