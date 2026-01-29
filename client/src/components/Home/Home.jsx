@@ -11,14 +11,26 @@ import Contact from "./homeComponents/Contact";
 const Home = () => {
   return (
     <div>
-      <Hero />
-      <About />
+      <div id="home">
+        <Hero />
+      </div>
+      <div id="about-us">
+        <About />
+      </div>
       <OurMisssion />
-      <Services />
-      <WhyKerala />
+      <div id="services">
+        <Services />
+      </div>
+      <div id="why-kerala">
+        <WhyKerala />
+      </div>
       <OurPromise />
-      <OurDoctors />
-      <Contact />
+      <div id="doctors">
+        <OurDoctors />
+      </div>
+      <div id="contact">
+        <Contact />
+      </div>
     </div>
   );
 };

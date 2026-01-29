@@ -15,6 +15,25 @@ const Header = () => {
 
   const navLinks = ["Home", "About Us", "Services", "Why Kerala", "Doctors"];
 
+  const handleNavClick = (linkName) => {
+    const idMap = {
+      Home: "home",
+      "About Us": "about-us",
+      Services: "services",
+      "Why Kerala": "why-kerala",
+      Doctors: "doctors",
+      Contact: "contact",
+    };
+
+    const id = idMap[linkName];
+    if (id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   // --- ANIMATION LOGIC ---
   useEffect(() => {
     animateMenuToggle(isMenuOpen, hamburgerRef, closeRef);
@@ -75,6 +94,7 @@ const Header = () => {
           {navLinks.map((link) => (
             <p
               key={link}
+              onClick={() => handleNavClick(link)}
               className="cursor-pointer hover:text-[#1B6498] transition-colors"
             >
               {link}
@@ -89,7 +109,10 @@ const Header = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="hidden lg:block"
         >
-          <button className="uppercase flex items-center gap-2 py-2.5 px-5 rounded-xl border-2 border-[#1B6498] text-[#1B6498] font-medium transition hover:bg-[#1B6498] hover:text-white">
+          <button
+            onClick={() => handleNavClick("Contact")}
+            className="uppercase flex items-center gap-2 py-2.5 px-5 rounded-xl border-2 border-[#1B6498] text-[#1B6498] font-medium transition hover:bg-[#1B6498] hover:text-white"
+          >
             <FiPhone /> Contact Us
           </button>
         </motion.div>
@@ -136,12 +159,21 @@ const Header = () => {
               <p
                 key={link}
                 className="cursor-pointer transition hover:text-[#1B6498]"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => {
+                  handleNavClick(link);
+                  setIsMenuOpen(false);
+                }}
               >
                 {link}
               </p>
             ))}
-            <button className="mt-4 uppercase flex items-center gap-2 py-3 px-7 rounded-xl border-2 border-[#1B6498] text-[#1B6498] font-medium transition hover:bg-[#1B6498] hover:text-white">
+            <button
+              onClick={() => {
+                handleNavClick("Contact");
+                setIsMenuOpen(false);
+              }}
+              className="mt-4 uppercase flex items-center gap-2 py-3 px-7 rounded-xl border-2 border-[#1B6498] text-[#1B6498] font-medium transition hover:bg-[#1B6498] hover:text-white"
+            >
               <FiPhone /> Contact Us
             </button>
           </div>

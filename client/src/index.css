@@ -4,6 +4,16 @@
   background: #fcfaf8;
 }
 
+html {
+  scroll-padding-top: 74px;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 .inter {
   font-family: "Inter", sans-serif;
 }

@@ -4,6 +4,13 @@ import BottomShape from "../../../assets/images/heroSection/BottomShape.svg";
 import { motion } from "framer-motion";
 
 const Hero = () => {
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="hero-section relative overflow-hidden inter text-white flex flex-col items-center justify-center text-center py-24 md:py-32 lg:py-42.5 px-4 lg:px-0  ">
       {/* Lighter gradient overlay */}
@@ -56,6 +63,7 @@ const Hero = () => {
         >
           {/* Primary */}
           <button
+            onClick={() => scrollToSection("contact")}
             className="
       px-7 py-3 rounded-[10px] font-medium w-full sm:w-auto
       bg-[#1B6498] text-white border border-[#1B6498]
@@ -69,6 +77,7 @@ const Hero = () => {
 
           {/* Secondary */}
           <button
+            onClick={() => scrollToSection("services")}
             className="
       px-7 py-3 rounded-[10px] font-medium w-full sm:w-auto
       border border-[#1B6498] bg-black/30 backdrop-blur text-white

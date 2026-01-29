@@ -103,7 +103,7 @@ const Services = () => {
   return (
     <div>
       {/* Services Section */}
-      <div className="px-6 py-15 lg:p-20 ">
+      <div className="px-6 py-15 lg:px-20 lg:py-5 lg:my-15 ">
         {/* Section 1: Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
