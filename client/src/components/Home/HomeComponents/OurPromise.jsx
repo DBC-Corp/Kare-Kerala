@@ -60,11 +60,11 @@ const OurPromise = () => {
         {/* Grid Container */}
         <div className="relative max-w-5xl mx-auto">
           {/* Desktop Divider Lines (Absolute Positioned) */}
-          <div className="hidden md:block absolute top-1/2 left-0 w-full h-px bg-[#244C38]" />
-          <div className="hidden md:block absolute left-1/2 top-0 h-full w-px bg-[#244C38]" />
+          <div className="hidden lg:block absolute top-1/2 left-0 w-full h-px bg-[#244C38]" />
+          <div className="hidden lg:block absolute left-1/2 top-0 h-full w-px bg-[#244C38]" />
 
           {/* Center Circle */}
-          <div className="hidden md:block absolute top-1/2 left-1/2 w-5 h-5 bg-[#F8F9FA] border border-[#244C38] rounded-full transform -translate-x-1/2 -translate-y-1/2 z-10" />
+          <div className="hidden lg:block absolute top-1/2 left-1/2 w-5 h-5 bg-[#F8F9FA] border border-[#244C38] rounded-full transform -translate-x-1/2 -translate-y-1/2 z-10" />
 
           <motion.div
             initial="hidden"
@@ -74,7 +74,7 @@ const OurPromise = () => {
               hidden: {},
               visible: { transition: { staggerChildren: 0.2 } },
             }}
-            className="grid grid-cols-1 md:grid-cols-2"
+            className="grid grid-cols-1 lg:grid-cols-2"
           >
             {promises.map((item, index) => (
               <motion.div
@@ -85,7 +85,7 @@ const OurPromise = () => {
                 }}
                 className={`flex flex-col sm:flex-row gap-4 sm:gap-6 items-center sm:items-start text-center sm:text-left py-8 md:py-10 ${
                   /* Add specific padding based on quadrant to create space around the center lines */
-                  index % 2 === 0 ? "md:pr-10" : "md:pl-10"
+                  index % 2 === 0 ? "lg:pr-10" : "lg:pl-10"
                 }`}
               >
                 {/* Image */}
