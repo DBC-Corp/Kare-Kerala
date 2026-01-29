@@ -148,7 +148,7 @@ const Header = () => {
       {/* Mobile Menu Dropdown */}
       <div
         ref={menuRef}
-        className={`lg:hidden grid transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] bg-[#FCFAF8] shadow-md rounded-b-[30px] ${
+        className={`lg:hidden grid transition-all duration-500 ease-in-out bg-[#FCFAF8] shadow-md rounded-b-[30px] ${
           isMenuOpen
             ? "grid-rows-[1fr] opacity-100"
             : "grid-rows-[0fr] opacity-0"
