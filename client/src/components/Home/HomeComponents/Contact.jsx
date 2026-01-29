@@ -2,13 +2,20 @@ import React from "react";
 import { LuMail, LuPhone, LuMapPin } from "react-icons/lu";
 import { FaArrowRight } from "react-icons/fa";
 import Aloevera from "../../../assets/images/contactSection/aloevera.png.svg";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   return (
     <div className="w-full pt-12 md:pt-16 pb-16 md:pb-24 lg:pb-[130px] px-4 md:px-10 lg:px-20 bg-[#fcfaf8] overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 lg:gap-20 xl:gap-24 items-center">
         {/* Left Content */}
-        <div className="z-10 flex flex-col justify-center">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="z-10 flex flex-col justify-center"
+        >
           <h1 className="playfair text-[#1E1E1E] text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-normal leading-tight mb-4 md:mb-6">
             Let's Connect
           </h1>
@@ -46,10 +53,16 @@ const Contact = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Form */}
-        <div className="relative">
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true }}
+          className="relative"
+        >
           {/* Aloevera Image - Positioned behind the form */}
           <img
             src={Aloevera}
@@ -113,7 +126,7 @@ const Contact = () => {
               </div>
             </form>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

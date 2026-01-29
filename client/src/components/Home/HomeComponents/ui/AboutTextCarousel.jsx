@@ -3,10 +3,15 @@ import {
   ScrollVelocityContainer,
   ScrollVelocityRow,
 } from "../../../../animations/ScrollBasedVelocity";
+import { motion } from "framer-motion";
 
 const AboutTextCarousel = () => {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-50px" }}
       className="w-full border-y border-[#4DBD89]/60 
       py-2 sm:py-3 md:py-4 lg:py-5 
       backdrop-blur-sm bg-white/5"
@@ -38,7 +43,7 @@ const AboutTextCarousel = () => {
           </span>
         </ScrollVelocityRow>
       </ScrollVelocityContainer>
-    </div>
+    </motion.div>
   );
 };
 

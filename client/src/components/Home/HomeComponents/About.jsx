@@ -3,6 +3,7 @@ import AboutHighlights from "./ui/AboutHighlights";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import AboutCarousel from "./ui/AboutCarousel";
 import AboutTextCarousel from "./ui/AboutTextCarousel";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
@@ -17,12 +18,24 @@ const About = () => {
       >
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 xl:gap-10">
           {/* Carousel */}
-          <div className="w-full lg:w-[45%]">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="w-full lg:w-[45%]"
+          >
             <AboutCarousel />
-          </div>
+          </motion.div>
 
           {/* Content */}
-          <div className="w-full lg:w-[50%] text-[#244C38] flex flex-col gap-3 sm:gap-4 text-center lg:text-left">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="w-full lg:w-[50%] text-[#244C38] flex flex-col gap-3 sm:gap-4 text-center lg:text-left"
+          >
             <h1 className="text-lg sm:text-xl md:text-2xl xl:text-[30px] font-medium playfair uppercase">
               About Us
             </h1>
@@ -40,12 +53,18 @@ const About = () => {
               Country.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 pt-1 justify-center lg:justify-start">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="flex flex-col sm:flex-row gap-3 pt-1 justify-center lg:justify-start"
+            >
               <button className="px-6 cursor-pointer py-2.5 flex items-center justify-center gap-2 bg-[#1B6498] text-white rounded-[10px] hover:bg-[#134d77] transition font-medium shadow-sm hover:shadow-md w-full sm:w-auto">
                 Learn More <AiOutlineArrowRight />
               </button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 

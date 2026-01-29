@@ -2,24 +2,37 @@ import React from "react";
 import OurMissionIcon from "../../../assets/images/ourMission&ourVisionSection/OurMissionIcon.svg";
 import OurVisionIcon from "../../../assets/images/ourMission&ourVisionSection/OurVisionIcon.svg";
 import { FaRegCircleCheck } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 const OurMission = () => {
   return (
     <section className="bg-[#e9f6f1] py-20 px-5 sm:px-10">
       {/* Header */}
-      <div className="text-center mb-14">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-center mb-14"
+      >
         <h3 className="text-sm sm:text-base inter uppercase tracking-[0.25em] text-[#4DBD89] mb-2">
           Our Purpose
         </h3>
         <h1 className="text-3xl sm:text-5xl playfair font-semibold text-[#244C38]">
           Mission and Vision
         </h1>
-      </div>
+      </motion.div>
 
       {/* Cards */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* Mission Card */}
-        <div className="bg-white flex flex-col items-start justify-center rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] p-8 sm:p-10">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="bg-white flex flex-col items-start justify-center rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] p-8 sm:p-10"
+        >
           {/* Header */}
           <div className="flex items-center gap-4 mb-6">
             <img src={OurMissionIcon} alt="Our Mission" className="w-10" />
@@ -47,10 +60,16 @@ const OurMission = () => {
               Support Ayurveda and modern medicine
             </li>
           </ul>
-        </div>
+        </motion.div>
 
         {/* Vision Card */}
-        <div className="bg-[#214131] flex flex-col items-start justify-center rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] p-8 sm:p-10 text-white ">
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="bg-[#214131] flex flex-col items-start justify-center rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] p-8 sm:p-10 text-white "
+        >
           <div>
             {/* Header */}
             <div className="flex items-center gap-4 mb-6">
@@ -72,7 +91,7 @@ const OurMission = () => {
               "Where ancient wisdom meets modern excellence"
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

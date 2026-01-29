@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import KareKeralaLogo from "../../assets/images/websiteLogo/kareKeralaLogo.svg";
 import { FiPhone, FiMenu, FiX } from "react-icons/fi";
 import { animateMenuToggle } from "../../animations/menuAnimations";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,6 +14,25 @@ const Header = () => {
   const closeRef = useRef(null);
 
   const navLinks = ["Home", "About Us", "Services", "Why Kerala", "Doctors"];
+
+  const handleNavClick = (linkName) => {
+    const idMap = {
+      Home: "home",
+      "About Us": "about-us",
+      Services: "services",
+      "Why Kerala": "why-kerala",
+      Doctors: "doctors",
+      Contact: "contact",
+    };
+
+    const id = idMap[linkName];
+    if (id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   // --- ANIMATION LOGIC ---
   useEffect(() => {
@@ -51,35 +71,58 @@ const Header = () => {
         }`}
       >
         {/* Logo */}
-        <div className="w-[120px] lg:w-auto">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="w-[120px] lg:w-auto cursor-pointer"
+          onClick={() => handleNavClick("Home")}
+        >
           <img
             src={KareKeralaLogo}
             alt="Logo"
             className="w-full h-full object-contain"
           />
-        </div>
+        </motion.div>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex gap-8 font-medium">
+        <motion.nav
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="hidden lg:flex gap-8 font-medium"
+        >
           {navLinks.map((link) => (
             <p
               key={link}
+              onClick={() => handleNavClick(link)}
               className="cursor-pointer hover:text-[#1B6498] transition-colors"
             >
               {link}
             </p>
           ))}
-        </nav>
+        </motion.nav>
 
         {/* Desktop CTA */}
-        <div className="hidden lg:block">
-          <button className="uppercase flex items-center gap-2 py-2.5 px-5 rounded-xl border-2 border-[#1B6498] text-[#1B6498] font-medium transition hover:bg-[#1B6498] hover:text-white">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="hidden lg:block"
+        >
+          <button
+            onClick={() => handleNavClick("Contact")}
+            className="uppercase flex items-center gap-2 py-2.5 px-5 rounded-xl border-2 border-[#1B6498] text-[#1B6498] font-medium transition hover:bg-[#1B6498] hover:text-white"
+          >
             <FiPhone /> Contact Us
           </button>
-        </div>
+        </motion.div>
 
         {/* --- MOBILE TOGGLE BUTTON --- */}
-        <button
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
           ref={buttonRef}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="lg:hidden text-[#1B6498] relative w-[30px] h-[30px] flex items-center justify-center outline-none"
@@ -99,13 +142,13 @@ const Header = () => {
           >
             <FiX size={30} />
           </div>
-        </button>
+        </motion.button>
       </div>
 
       {/* Mobile Menu Dropdown */}
       <div
         ref={menuRef}
-        className={`lg:hidden grid transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] bg-[#FCFAF8] shadow-md rounded-b-[30px] ${
+        className={`lg:hidden grid transition-all duration-500 ease-in-out bg-[#FCFAF8] shadow-md rounded-b-[30px] ${
           isMenuOpen
             ? "grid-rows-[1fr] opacity-100"
             : "grid-rows-[0fr] opacity-0"
@@ -117,12 +160,21 @@ const Header = () => {
               <p
                 key={link}
                 className="cursor-pointer transition hover:text-[#1B6498]"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => {
+                  handleNavClick(link);
+                  setIsMenuOpen(false);
+                }}
               >
                 {link}
               </p>
             ))}
-            <button className="mt-4 uppercase flex items-center gap-2 py-3 px-7 rounded-xl border-2 border-[#1B6498] text-[#1B6498] font-medium transition hover:bg-[#1B6498] hover:text-white">
+            <button
+              onClick={() => {
+                handleNavClick("Contact");
+                setIsMenuOpen(false);
+              }}
+              className="mt-4 uppercase flex items-center gap-2 py-3 px-7 rounded-xl border-2 border-[#1B6498] text-[#1B6498] font-medium transition hover:bg-[#1B6498] hover:text-white"
+            >
               <FiPhone /> Contact Us
             </button>
           </div>

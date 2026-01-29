@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { motion } from "framer-motion";
 
 // Image Imports
 import CarouselImgOne from "../../../../assets/images/whyKeralaSection/CarouselImg(1).png";
@@ -76,7 +77,13 @@ const WhyKeralaSection2 = () => {
         <div className="relative z-10 text-white w-full px-4 lg:pr-0 lg:pl-6">
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-10">
             {/* Left Static Text */}
-            <div className="w-full lg:w-[35%] shrink-0 p-2 lg:p-5 text-center lg:text-left">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="w-full lg:w-[35%] shrink-0 p-2 lg:p-5 text-center lg:text-left"
+            >
               <h1 className="playfair text-[32px] md:text-[45px] lg:text-[60px] leading-[1.1] mb-4 lg:mb-6">
                 Healing Journeys <br /> in Kerala
               </h1>
@@ -85,11 +92,15 @@ const WhyKeralaSection2 = () => {
                 Kerala. Explore our diverse healing journeys designed for
                 natural recovery and renewal.
               </p>
-            </div>
+            </motion.div>
 
             {/* --- DESKTOP CAROUSEL (Infinite Loop) --- */}
             {/* --- DESKTOP CAROUSEL (Infinite Loop) --- */}
-            <div
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              viewport={{ once: true }}
               className="hidden lg:block w-full flex-1 overflow-hidden relative"
               style={{
                 maskImage:
@@ -130,10 +141,16 @@ const WhyKeralaSection2 = () => {
                   );
                 })}
               </div>
-            </div>
+            </motion.div>
 
             {/* --- MOBILE CAROUSEL (Centered Slide + Buttons) --- */}
-            <div className="flex flex-col gap-6 lg:hidden w-[calc(100%+2rem)] -mx-4 pb-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              viewport={{ once: true }}
+              className="flex flex-col gap-6 lg:hidden w-[calc(100%+2rem)] -mx-4 pb-10"
+            >
               <div className="w-full overflow-hidden">
                 <div
                   className="flex gap-[5vw] transition-transform duration-500 ease-in-out"
@@ -215,7 +232,7 @@ const WhyKeralaSection2 = () => {
                   </svg>
                 </button>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
