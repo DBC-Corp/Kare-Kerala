@@ -1,9 +1,14 @@
 import React from "react";
 import Star from "../../../assets/images/heroSection/star.svg";
 import BottomShape from "../../../assets/images/heroSection/BottomShape.svg";
+import HeroVideo from "../../../assets/video/HeroVIdeo.mp4";
+import HeroImg from "../../../assets/images/heroSection/heroImg.png";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Hero = () => {
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -12,9 +17,33 @@ const Hero = () => {
   };
 
   return (
-    <div className="hero-section relative overflow-hidden inter text-white flex flex-col items-center justify-center text-center py-24 md:py-32 lg:py-42.5 px-4 lg:px-0  ">
+    <div className="relative overflow-hidden inter text-white flex flex-col items-center justify-center text-center py-24 md:py-32 lg:py-42.5 px-4 lg:px-0 bg-gray-900">
+      {/* Fallback Image (Priority Load) */}
+      <img
+        src={HeroImg}
+        alt="Hero Background"
+        fetchPriority="high"
+        decoding="async"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      />
+
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        onLoadedData={() => setIsVideoLoaded(true)}
+        className={`absolute top-0 left-0 w-full h-full object-cover z-0 transition-opacity duration-1000 ${
+          isVideoLoaded ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <source src={HeroVideo} type="video/mp4" />
+      </video>
+
       {/* Lighter gradient overlay */}
-      <div className="absolute bottom-0 left-0 w-full h-[165%] z-0 bg-[linear-gradient(to_top,rgba(41,86,64,0.70)_0%,rgba(41,86,64,0.55)_35%,rgba(20,30,24,0.45)_65%,rgba(10,15,12,0.65)_100%)]" />
+      <div className="absolute bottom-0 left-0 w-full h-[165%] z-1 bg-[linear-gradient(to_top,rgba(41,86,64,0.70)_0%,rgba(41,86,64,0.55)_35%,rgba(20,30,24,0.45)_65%,rgba(10,15,12,0.65)_100%)]" />
 
       {/* Content */}
       <motion.div
