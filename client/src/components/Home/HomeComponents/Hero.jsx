@@ -17,7 +17,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative overflow-hidden inter text-white flex flex-col items-center justify-center text-center py-24 md:py-32 lg:py-42.5 px-4 lg:px-0 bg-gray-900">
+    <div className="relative overflow-hidden inter text-white flex flex-col items-center justify-center text-center py-24 md:py-32 lg:py-57 px-4 lg:px-0 bg-gray-900">
       {/* Fallback Image (Priority Load) */}
       <img
         src={HeroImg}
