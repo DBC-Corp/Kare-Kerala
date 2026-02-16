@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import KareKeralaLogo from "../../assets/images/websiteLogo/kareKeralaLogo.svg";
+import KareKeralaLogo from "../../assets/images/websiteLogo/KareKeralaLogo.svg";
 import { FiPhone, FiMenu, FiX } from "react-icons/fi";
 import { animateMenuToggle } from "../../animations/menuAnimations";
 import { motion } from "framer-motion";
