@@ -112,7 +112,7 @@ const Header = () => {
         >
           <button
             onClick={() => handleNavClick("Contact")}
-            className="uppercase flex items-center gap-2 py-2.5 px-5 rounded-xl border-2 border-[#1B6498] text-[#1B6498] font-medium transition hover:bg-[#1B6498] hover:text-white"
+            className="uppercase cursor-pointer flex items-center gap-2 py-2.5 px-5 rounded-xl border-2 border-[#1B6498] text-[#1B6498] font-medium transition hover:bg-[#1B6498] hover:text-white"
           >
             <FiPhone /> Contact Us
           </button>
