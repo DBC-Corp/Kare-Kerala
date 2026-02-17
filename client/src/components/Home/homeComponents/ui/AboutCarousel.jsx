@@ -22,7 +22,7 @@ const slides = [
     image:
       "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=800",
   },
-  {
+  { 
     id: 5,
     image:
       "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=800",
