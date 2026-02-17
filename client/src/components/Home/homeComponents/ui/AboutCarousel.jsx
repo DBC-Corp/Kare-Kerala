@@ -43,48 +43,54 @@ const AboutCarouselGSAP = () => {
     return () => clearInterval(t);
   }, []);
 
-  // --- GSAP ANIMATION LOGIC ---
+  // --- GSAP CONTEXT (Cleanup on Unmount) ---
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {}, containerRef);
+    return () => ctx.revert();
+  }, []);
+
+  // --- ANIMATION TRIGGER ---
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       slideRefs.current.forEach((slide, index) => {
         if (!slide) return;
 
         if (index === currentIndex) {
-          // ACTIVE IMAGE — reveal
+          // ACTIVE IMAGE: Fade in & Scale down slightly
           gsap.fromTo(
             slide,
             {
               autoAlpha: 0,
-              y: 25,
-              scale: 1.08,
-              filter: "blur(8px)",
+              scale: 1.1,
+              zIndex: 10,
             },
             {
               autoAlpha: 1,
-              y: 0,
               scale: 1,
-              filter: "blur(0px)",
-              duration: 1.1,
-              ease: "power3.out",
               zIndex: 10,
+              duration: 1.2,
+              ease: "power2.out",
+              overwrite: true,
             },
           );
         } else {
-          // INACTIVE IMAGE — exit
+          // INACTIVE IMAGES: Just ensure they are hidden after the new one is ready
+          // We delay the fade out until the new image (duration 1.2) is nearly done
           gsap.to(slide, {
-            autoAlpha: 0,
-            y: -20,
-            scale: 1.05,
-            filter: "blur(6px)",
-            duration: 0.8,
-            ease: "power2.inOut",
             zIndex: 1,
+            scale: 1,
+            autoAlpha: 0,
+            duration: 0.5,
+            delay: 1.1, // Wait until active image is almost fully opaque
+            overwrite: true,
           });
         }
       });
     }, containerRef);
 
-    return () => ctx.revert();
+    // Note: We intentionally DO NOT revert this specific effect on dependency change
+    // to allow the "previous" slide (which is becoming inactive) to retain its opacity:1
+    // state long enough for the new slide to fade in over it.
   }, [currentIndex]);
 
   // --- DIMENSIONS & CONFIGURATION ---
@@ -125,7 +131,7 @@ const AboutCarouselGSAP = () => {
             fill="#296496"
             fontSize="12.5"
             fontWeight=""
-            className="tracking-[0.10em] inter"
+            className="tracking-widest inter"
           >
             <textPath
               href="#textArc"
