@@ -131,7 +131,7 @@ const AboutCarouselGSAP = () => {
             fill="#296496"
             fontSize="12.5"
             fontWeight=""
-            className="tracking-[0.10em] inter"
+            className="tracking-widest inter"
           >
             <textPath
               href="#textArc"
