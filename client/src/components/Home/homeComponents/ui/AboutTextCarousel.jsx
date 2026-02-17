@@ -13,7 +13,7 @@ const AboutTextCarousel = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true, margin: "-50px" }}
       className="w-full border-y border-[#4DBD89]/60 
-      py-2 sm:py-3 md:py-4 lg:py-5 
+      py-2 sm:py-2.5 md:py-3 lg:py-3 
       backdrop-blur-sm bg-white/5"
     >
       <ScrollVelocityContainer
@@ -32,7 +32,7 @@ const AboutTextCarousel = () => {
           <span
             className="
               uppercase text-[#4DBD89]
-              text-xs sm:text-sm md:text-base lg:text-lg xl:text-[20px] 2xl:text-[22px]
+              text-xs sm:text-xs md:text-sm lg:text-base xl:text-lg 
               whitespace-nowrap
             "
           >
